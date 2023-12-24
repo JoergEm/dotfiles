@@ -1,0 +1,45 @@
+{
+    "workbench.colorTheme": "Monokai",
+    "workbench.startupEditor": "none",
+    "window.zoomLevel": 2.5,
+    "breadcrumbs.enabled": false,
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "'Fira Code'",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 16,
+    "editor.glyphMargin": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.minimap.enabled": true,
+    "editor.minimap.showSlider": "always",
+    "editor.cursorBlinking": "expand",
+    "editor.tabSize": 4,
+    "editor.wordWrap": "on",
+    "editor.inlineSuggest.enabled": false,
+    "terminal.integrated.lineHeight": 1.1,
+    "terminal.integrated.cursorStyle": "underline",
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "terminal.integrated.cwd": "${workspaceFolder}",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.customGlyphs": true,
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "prettier.useEditorConfig": false,
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact",
+      "razor": "html",
+      "plaintext": "pug",
+      "django-html": "html"
+    },
+    "[python]": {
+      "python.formatting.provider": "yapf",
+      "diffEditor.ignoreTrimWhitespace": false,
+      "gitlens.codeLens.symbolScopes": ["!Module"],
+      "editor.defaultFormatter": "ms-python.black-formatter",
+      "editor.formatOnType": true,
+      "editor.wordBasedSuggestions": false
+    }
+  }
+  
