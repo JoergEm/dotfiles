@@ -4,3 +4,6 @@ editor = vim
 tool = vimdiff
 [merge]
 tool = vimdiff
+[alias]
+heute = "!f() { git log --all --since=$(date +'%Y-%m-%d') --pretty=format: | wc -l; }; f"
+lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
