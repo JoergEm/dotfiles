@@ -9,4 +9,5 @@ heute = log --all --since=midnight
 lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 idmark = "!f() { echo \"$1\" >> ~/.git-marked-commits; }; f"
 cp-all = "!f() { xargs git cherry-pick < ~/.git-marked-commits; rm ~/.git-marked-commits; }; f"
+# Syntax: git find-merge <commit>
 find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2'"
