@@ -381,7 +381,7 @@ let g:syntastic_check_on_wq = 0
 
 augroup templates
   autocmd!
-  autocmd BufRead *.F90,*.R,*.c,*.cbl,*.cpp,*.cs,*.docker,*.go,*.html,*.java,*.jl,*.kt,*.py,*.rs,*.scala,*.tf,*.ts,*.tex call s:ApplyTemplate()
+  autocmd BufRead *.F90,*.R,*.c,*.cbl,*.cpp,*.cs,*.docker,*.go,*.html,*.java,*.jl,*.kt,*.py,*.rs,*.scala,*.sql,*.tf,*.ts,*.tex call s:ApplyTemplate()
   function! s:ApplyTemplate()
     if getfsize(expand('%')) == 0
       execute "0r ~/.vim/templates/skeleton." . expand('%:e')
