@@ -189,6 +189,8 @@ elseif &filetype == 'scala'
     exec "! scala %"
 elseif &filetype == 'sh'
     exec "! bash %"
+elseif &filetype == 'sql'
+    exec "! sudo mysql -u root -p < %"
 elseif &filetype == 'tex'
     exec "! latex %"
 elseif &filetype == 'ts'
