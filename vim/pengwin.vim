@@ -154,47 +154,47 @@ map <F8> :call Kompiliere()<CR>
 func! Kompiliere()
 exec "w"
 if &filetype == 'F90'
-    exec "! gfortran %"
-    exec "! ./a.out"
+exec "! gfortran %"
+exec "! ./a.out"
 elseif &filetype == 'R'
-    exec "! Rscript.exe %"
+exec "! Rscript.exe %"
 elseif &filetype == 'c'
-    exec "! gcc % -o %< && ./%"
+exec "! gcc % -o %< && ./%"
 elseif &filetype == 'cbl'
-    exec "! cobc -x %"
-    exec "! ./%:r"
+exec "! cobc -x %"
+exec "! ./%:r"
 elseif &filetype == 'cpp'
-    exec "! g++ -o %< %"
+exec "! g++ -o %< %"
 elseif &filetype == 'cs'
-    exec "! dotnet run"
+exec "! dotnet run"
 elseif &filetype == 'docker'
-    exec "! docker build -t %:r ."
+exec "! docker build -t %:r ."
 elseif &filetype == 'go'
-    exec "! go run %"
+exec "! go run %"
 elseif &filetype == 'html'
-    exec "! open %"
+exec "! open %"
 elseif &filetype == 'java'
-    exec "! javac %"
-    exec "! java %:r"
+exec "! javac %"
+exec "! java %:r"
 elseif &filetype == 'jl'
-    exec "! julia %"
+exec "! julia %"
 elseif &filetype == 'kt'
-    exec "! kotlinc % -include-runtime -d %:r.jar"
-    exec "! java -jar %:r.jar"
+exec "! kotlinc % -include-runtime -d %:r.jar"
+exec "! java -jar %:r.jar"
 elseif &filetype == 'py'
-    exec "! python3 %"
+exec "! python3 %"
 elseif &filetype == 'rs'
-    exec "! rustc %"
+exec "! rustc %"
 elseif &filetype == 'scala'
-    exec "! scala %"
+exec "! scala %"
 elseif &filetype == 'sh'
-    exec "! bash %"
+exec "! bash %"
 elseif &filetype == 'sql'
-    exec "! sudo mysql -u root -p < %"
+exec "! sudo mysql -u root -p < %"
 elseif &filetype == 'tex'
-    exec "! latex %"
+exec "! latex %"
 elseif &filetype == 'ts'
-    exec "! node %"
+exec "! node %"
 endif
 endfunc
 " au BufRead * if search('\M-*- C++ -*-', 'n', 1) | setlocal ft=cpp | endif
