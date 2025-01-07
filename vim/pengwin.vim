@@ -160,7 +160,7 @@ elseif &filetype == 'R'
 exec "! Rscript.exe %"
 elseif &filetype == 'c'
 exec "! gcc % -o %< && ./%"
-elseif &filetype == 'cbl'
+elseif &filetype == 'cobol'
 exec "! cobc -x %"
 exec "! ./%:r"
 elseif &filetype == 'cpp'
@@ -176,25 +176,29 @@ exec "! open %"
 elseif &filetype == 'java'
 exec "! javac %"
 exec "! java %:r"
-elseif &filetype == 'jl'
+elseif &filetype == 'julia'
 exec "! julia %"
-elseif &filetype == 'kt'
+elseif &filetype == 'javascript'
+exec "! node %"
+elseif &filetype == 'kotlin'
 exec "! kotlinc % -include-runtime -d %:r.jar"
 exec "! java -jar %:r.jar"
-elseif &filetype == 'py'
+elseif &filetype == 'python'
 exec "! python3 %"
-elseif &filetype == 'rs'
+elseif &filetype == 'rust'
 exec "! rustc %"
 elseif &filetype == 'scala'
 exec "! scala %"
-elseif &filetype == 'sh'
+elseif &filetype == 'shell'
 exec "! bash %"
 elseif &filetype == 'sql'
 exec "! sudo mysql -u root -p < %"
-elseif &filetype == 'tex'
+elseif &filetype == 'latex'
 exec "! latex %"
-elseif &filetype == 'ts'
-exec "! node %"
+elseif &filetype == 'typescript'
+exec "! tsc %"
+else
+echoerr 'Filetype unknown'
 endif
 endfunc
 " au BufRead * if search('\M-*- C++ -*-', 'n', 1) | setlocal ft=cpp | endif
