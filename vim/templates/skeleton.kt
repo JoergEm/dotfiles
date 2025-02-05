@@ -10,6 +10,6 @@
  * 
  */
 
- fun main() {
-    START
- }
+fun main() {
+   START
+}
