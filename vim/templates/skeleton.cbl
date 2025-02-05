@@ -1,4 +1,4 @@
-      $set sourceformat"free"
+       $set sourceformat"free"
        IDENTIFICATION DIVISION.
        PROGRAM-ID. FILENAME.
        AUTHOR. INHABER.
