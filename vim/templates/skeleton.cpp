@@ -14,7 +14,7 @@
 #include <iostream>
 #define mod 1000000007
 #define ll long long
-using namespce std;
+using namespace std;
 int main()
 {   
     START
