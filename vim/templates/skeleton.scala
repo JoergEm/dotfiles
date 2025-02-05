@@ -12,7 +12,7 @@
  * 
  */
 
- @main
+@main
 def main() =
     START
     println()
