@@ -1,4 +1,5 @@
 #=
+VERSION
 FILENAME.jl
 Copyright DATUM INHABER
 @GitHub JoergEm

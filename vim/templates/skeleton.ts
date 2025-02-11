@@ -1,4 +1,5 @@
 /*
+ * tsc version VERSION
  * FILENAME.ts
  * 
  * Copyright DATUM INHABER

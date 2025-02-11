@@ -1,4 +1,5 @@
 //
+// VERSION
 // FILENAME.rs
 // 
 // Copyright DATUM INHABER

@@ -1,4 +1,5 @@
 !
+! VERSION
 ! Copyright DATUM INHABER
 ! @GitHub JoergEm
 ! 

@@ -1,4 +1,5 @@
 /*
+ * VERSION
  * FILENAME.cpp
  * 
  * Copyright DATUM INHABER

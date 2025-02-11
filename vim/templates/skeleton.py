@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
+VERSION
 FILENAME.py
 Copyright DATUM INHABER
 @GitHub JoergEm

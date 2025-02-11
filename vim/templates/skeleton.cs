@@ -1,4 +1,5 @@
 /*
+ * .NET VERSION
  * FILENAME.cs
  * 
  * Copyright DATUM INHABER

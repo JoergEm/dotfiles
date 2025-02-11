@@ -1,4 +1,5 @@
 //
+// VERSION
 // FILENAME.c
 // 
 // Copyright DATUM INHABER

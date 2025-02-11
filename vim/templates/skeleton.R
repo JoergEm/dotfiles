@@ -1,4 +1,4 @@
-#
+# VERSION
 # FILENAME.R
 # 
 # Copyright DATUM INHABER

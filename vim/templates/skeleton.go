@@ -1,4 +1,5 @@
 //
+// VERSION
 // FILENAME.go
 // 
 // Copyright DATUM INHABER

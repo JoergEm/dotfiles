@@ -1,6 +1,7 @@
 //> using scala 3.5.2
 
 /**
+ * VERSION
  * FILENAME.scala
  * 
  * Copyright DATUM INHABER

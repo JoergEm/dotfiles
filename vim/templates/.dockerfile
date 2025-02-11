@@ -1,4 +1,9 @@
-FROM <base_image>
+# VERSION
+# FILENAME
+# DATUM
+# INHABER
+
+FROM START
 
 WORKDIR /app
 

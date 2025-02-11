@@ -1,5 +1,6 @@
-/*
- * main.tf
+/* 
+ * Terraform VERSION
+ * main.tf (FILENAME)
  * 
  * Copyright DATUM INHABER
  * @GitHub JoergEm
@@ -9,7 +10,7 @@
  * 
  * 
  */
-
+START
 terraform {
   required_providers {
     google = {

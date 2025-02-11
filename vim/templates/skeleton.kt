@@ -1,4 +1,5 @@
 /*
+ * VERSION
  * FILENAME.java
  * 
  * Copyright DATUM INHABER
