@@ -1,0 +1,13 @@
+# Ignore all files
+*
+
+# Do not ignore dotfiles
+!.config/Code/User/settings.json
+!.oh-my-zsh/themes/vimpir.omp.json
+!.vim/templates/*
+!.gitconfig
+!.gitignore
+!.gitignore_global
+!.tmux.config
+!.vimrc
+!.zshrc
