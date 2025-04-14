@@ -251,6 +251,7 @@ function! s:ApplyTemplate()
     execute "%s/DATUM/\\=strftime('%Y')/"
     execute "%s/INHABER/\\Jörg M."
     execute "%s/START/\\=''"
+    execute 'normal! zt'
     startinsert!
   endif
 endfunction
