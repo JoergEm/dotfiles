@@ -91,7 +91,6 @@ Plug 'udalov/kotlin-vim'
 "Python
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'vim-syntastic/syntastic'
-Plug 'nvie/vim-flake8'
 
 " scala
 if has('python')
@@ -148,7 +147,7 @@ set autoindent
 set smartindent
 set cindent
 set nofoldenable
-set foldmethod=manual
+set foldmethod=marker
 set foldlevel=9
 set foldnestmax=9
 set backup
@@ -245,14 +244,17 @@ function! s:ApplyTemplate()
     endif
     execute "0r " . l:template
     let l:version = s:CallVersion()
+    if g:NERDTree.IsOpen()
+        execute "NERDTreeClose"
+    endif
     execute "%s/VERSION/" . l:version . "/ge"
     execute "%s/__CLASS_NAME__/" . expand('%:t:r') . "/e"
     execute "%s/FILENAME/\\=expand('%:t:r')/g"
     execute "%s/DATUM/\\=strftime('%Y')/"
-    execute "%s/INHABER/\\Jörg M."
+    execute "%s/INHABER/\\Jörg Mekka"
     execute "%s/START/\\=''"
-    execute 'normal! zt'
-    startinsert!
+	call timer_start(50, { -> execute('normal! zt') })
+	call timer_start(100, { -> feedkeys("i", "n") })
   endif
 endfunction
 
@@ -320,6 +322,7 @@ function! s:CallVersion()
 endfunction
 
 
+
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
@@ -360,7 +363,7 @@ elseif &filetype == 'fortran'
 exec "! gfortran %"
 exec "! ./a.out"
 elseif &filetype == 'R'
-exec "! Rscript.exe %"
+exec "! Rscript %"
 elseif &filetype == 'c'
 exec "! gcc % -o %< && ./%"
 elseif &filetype == 'cobol'
@@ -368,12 +371,15 @@ exec "! cobc -x %"
 exec "! ./%:r"
 elseif &filetype == 'cpp'
 exec "! g++ -o %< %"
+exec "! ./%:r"
 elseif &filetype == 'cs'
 exec "! dotnet run"
 elseif &filetype == 'docker'
 exec "! docker build -t %:r ."
 elseif &filetype == 'erlang'
 exec "! erlc %"
+elseif &filetype == 'fsharp'
+exec "! dotnet run"
 elseif &filetype == 'go'
 exec "! go run %"
 elseif &filetype == 'haskell'
@@ -431,6 +437,11 @@ function! s:gitUntracked()
     return map(files, "{'line': v:val, 'path': v:val}")
 endfunction
 
+function! ShowGitLog()
+    let l:git_log = system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p"))
+    call setbufvar(winbufnr(popup_atcursor(split(l:git_log, "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")
+endfunction
+
 
 "*****************************************************************************
 "" Autocmd Rules
@@ -473,22 +484,29 @@ command! FixWhitespace :%s/\s\+$//e
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 autocmd VimLeave * WipeReg
 
-map <F2> :NERDTreeToggle %:p:h<CR>
-map <F3> :set invnumber<CR>
-map <F4> :set invrelativenumber<CR>
-map <F5> :TagbarToggle<CR>
-map <F6> :call DiffWithSaved()<CR>
-map <F7> :DockerToolsToggle<CR>
-map <F8> :call Kompiliere()<CR>
-map <F9> :UndotreeToggle<CR>
-map <F10> :Startify<CR>
+map  <F2> :NERDTreeToggle %:p:h<CR>
+map  <F3> :set invnumber<CR>
+map  <F4> :set invrelativenumber<CR>
+map  <F5> :TagbarToggle<CR>
+map  <F6> :call DiffWithSaved()<CR>
+map  <F7> :GitMessenger<CR>
+map  <F8> :call Kompiliere()<CR>
+map  <F9> :Gwrite<CR>:Git commit -m "
+map  <F10> :Startify<CR>
+
+
+
+"*****************************************************************************
+"" git-messenger
+"*****************************************************************************
+
+let g:git_messenger_no_default_mappings = v:true
 
 "*****************************************************************************
 "" NERDTree
 "*****************************************************************************
 
 " Open nerdtree window on opening Vim
-
 au VimEnter * NERDTreeToggle /home/abraxas/Projekte | :NERDTree %:p:h | wincmd p
 
 " Set NerdTREE Size
@@ -572,6 +590,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:NERDTreeHijackNetrw=0
 
 "*****************************************************************************
 "" Startify
@@ -664,6 +684,14 @@ let g:ale_pattern_options = {
 \   '.*\.nasm$': {'ale_enabled': 0},
 \   '.*\.asm$': {'ale_enabled': 0},
 \}
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OCaml
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set rtp^="/home/abraxas/.opam/default/share/ocp-indent/vim"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -678,6 +706,7 @@ au BufNewFile, BufRead *.py
     \ set expandtab
     \ set autoindent
     \ set fileformat=unix
+    \ set foldexpr=getline(v:lnum)=~'^\s*"""'?'>1':1
 
 let python_highlight_all=1
 
