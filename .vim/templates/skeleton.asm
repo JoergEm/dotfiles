@@ -11,4 +11,7 @@
 ;; 
 %endif
 
+SECTION .data
 START
+
+SECTION .text

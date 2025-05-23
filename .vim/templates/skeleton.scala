@@ -1,6 +1,6 @@
-//> using scala 3.5.2
 
 /**
+ *
  * VERSION
  * FILENAME.scala
  * 
@@ -13,7 +13,7 @@
  * 
  */
 
-@main
-def main() =
-    START
-    println()
+
+@main def main(): Unit =
+  START
+  println()

@@ -1,6 +1,7 @@
 /*
- * tsc version VERSION
- * FILENAME.ts
+ *
+ * tsc VERSION
+ * FILENAME.js
  * 
  * Copyright DATUM INHABER
  * @GitHub JoergEm

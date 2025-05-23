@@ -1,4 +1,4 @@
-//
+// 
 // VERSION
 // FILENAME.go
 // 
@@ -17,5 +17,6 @@ import (
 	"text/template"
 )
 
-func main() { START
+func main() { 
+	START
 }

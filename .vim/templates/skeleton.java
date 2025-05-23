@@ -1,7 +1,9 @@
 /* 
+ *
  * VERSION
  * FILENAME.java
  * 
+ *
  * Copyright DATUM INHABER
  * @GitHub JoergEm
  * 

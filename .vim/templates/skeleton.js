@@ -1,5 +1,6 @@
-/*
- * node version VERSION
+/* 
+ *
+ * node VERSION
  * FILENAME.js
  * 
  * Copyright DATUM INHABER
