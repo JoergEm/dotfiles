@@ -23,6 +23,8 @@ CASE_SENSITIVE="true"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
 
+# Uncomment the following line if compinit messes up docker
+compdef -d docker
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
@@ -200,3 +202,10 @@ unset __conda_setup
 # This section can be safely removed at any time if needed.
 [[ ! -r '/home/abraxas/.opam/opam-init/init.zsh' ]] || source '/home/abraxas/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
+
+# bun completions
+[ -s "/home/abraxas/.bun/_bun" ] && source "/home/abraxas/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
