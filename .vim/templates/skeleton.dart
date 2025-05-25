@@ -1,7 +1,9 @@
 /* 
+ *
  * VERSION
- * FILENAME.cpp
+ * FILENAME.dart
  * 
+ *
  * Copyright DATUM INHABER
  * @GitHub JoergEm
  * 
@@ -11,11 +13,9 @@
  * 
  */
 
-#include <iostream>
-#include <string>
-using namespace std;
-int main()
-{   
-    START
-    return 0;
+
+	
+void main () {
+		START
+		
 }

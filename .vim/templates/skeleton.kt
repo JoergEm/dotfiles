@@ -12,6 +12,6 @@
  *
  */
 
- fun main() {
+fun main() {
     START
- }
+}

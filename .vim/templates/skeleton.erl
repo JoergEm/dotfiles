@@ -9,5 +9,7 @@
 %% warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 %% 
 
+-module(prog).
+-export([main/0]).
 START
 

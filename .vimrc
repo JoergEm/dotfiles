@@ -384,6 +384,7 @@ elseif &filetype == 'go'
 exec "! go run %"
 elseif &filetype == 'haskell'
 exec "! ghc %"
+exec "! ./%:r"
 elseif &filetype == 'html'
 exec "! open %"
 elseif &filetype == 'java'
