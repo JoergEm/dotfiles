@@ -415,6 +415,7 @@ elseif &filetype == 'latex'
 exec "! latex %"
 elseif &filetype == 'typescript'
 exec "! tsc %"
+exec "edit " . expand("%:r") . ".js"
 else
 echoerr 'Filetype unknown'
 endif
@@ -438,9 +439,17 @@ function! s:gitUntracked()
     return map(files, "{'line': v:val, 'path': v:val}")
 endfunction
 
-function! ShowGitLog()
+function! GitLog()
     let l:git_log = system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p"))
     call setbufvar(winbufnr(popup_atcursor(split(l:git_log, "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")
+endfunction
+
+function! GitCommitPush()
+    let l:commit_message = input('Enter commit message: ')
+    call system('git add .')
+    call system('git commit -m "' . l:commit_message . '"')
+    silent! execute '!git push'
+    redraw!
 endfunction
 
 
@@ -485,14 +494,14 @@ command! FixWhitespace :%s/\s\+$//e
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 autocmd VimLeave * WipeReg
 
-map  <F2> :NERDTreeToggle %:p:h<CR>
-map  <F3> :set invnumber<CR>
-map  <F4> :set invrelativenumber<CR>
-map  <F5> :TagbarToggle<CR>
-map  <F6> :call DiffWithSaved()<CR>
-map  <F7> :GitMessenger<CR>
-map  <F8> :call Kompiliere()<CR>
-map  <F9> :Gwrite<CR>:Git commit -m "
+map  <F2>  :NERDTreeToggle %:p:h<CR>
+map  <F3>  :set invnumber<CR>
+map  <F4>  :set invrelativenumber<CR>
+map  <F5>  :TagbarToggle<CR>
+map  <F6>  :call DiffWithSaved()<CR>
+map  <F7>  :GitMessenger<CR>
+map  <F8>  :call Kompiliere()<CR>
+map  <F9>  :call GitCommitPush()<CR>
 map  <F10> :Startify<CR>
 
 

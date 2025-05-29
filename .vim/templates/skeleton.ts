@@ -1,7 +1,7 @@
 /*
  *
  * tsc VERSION
- * FILENAME.js
+ * FILENAME.ts
  * 
  * Copyright DATUM INHABER
  * @GitHub JoergEm
