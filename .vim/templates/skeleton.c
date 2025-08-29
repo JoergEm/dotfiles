@@ -1,7 +1,6 @@
 /*
- *
  * VERSION
- * FILENAME.sql
+ * FILENAME.c
  *
  * Copyright DATUM INHABER
  * @GitHub JoergEm
@@ -12,8 +11,12 @@
  *
  */
 
-USE START; -- Database name
+#include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
 
-SELECT
-FROM
-;
+int main(void)
+{
+    START
+    return 0;
+}

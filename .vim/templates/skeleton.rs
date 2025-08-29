@@ -1,7 +1,7 @@
 //
 // VERSION
 // FILENAME.rs
-// 
+//
 // Copyright DATUM INHABER
 // @GitHub JoergEm
 //
