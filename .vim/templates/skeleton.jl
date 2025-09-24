@@ -8,7 +8,8 @@ This program is WITHOUT ANY WARRANTY; without even the implied
 warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 =#
 
-function START()
+function (main)(args)
+    START
     return
 end
 
