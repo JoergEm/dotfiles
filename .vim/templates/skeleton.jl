@@ -11,4 +11,5 @@ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 function (main)(args)
     START
     println()
+    return nothing
 end
