@@ -7,11 +7,16 @@
 # Installation Konfiguration
 ##################################################################
 # $profile zeigt den Pfad zur Datei
+# notepad $profile zum editieren
 # Set-ExecutionPolicy RemoteSigned 
 # $host.privatedata
 # New-Item -path $profile -type file -force
 # notepad $profile
 # Set-ExecutionPolicy RemoteSigned
+##################################################################
+# choco install starship
+##################################################################
+
 if ($host.Name -eq 'ConsoleHost')
 {
     Import-Module PSReadLine
