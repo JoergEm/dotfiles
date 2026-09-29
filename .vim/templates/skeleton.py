@@ -20,6 +20,7 @@ def main(args):
 
 if __name__ == '__main__':
     import sys
+
     if len(sys.argv) == 2 and sys.argv[1] == '--help':
         print(__doc__)
         sys.exit(main(sys.argv))

@@ -11,11 +11,12 @@
  *
  */
 
+#include <cstdlib>
 #include <iostream>
 #include <string>
 using namespace std;
 int main()
 {
     START
-    return 0;
+    return EXIT_SUCCESS;
 }
