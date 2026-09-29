@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(oh-my-posh init zsh --config https://raw.githubusercontent.com/JoergEm/dotfiles/refs/heads/main/.oh-my-zsh/themes/vimpir.omp.json)"
 
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -130,13 +131,15 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
+
+
 # Nachrichten beim Start des Terminals
 # ~/nachrichten.sh 2>/dev/null
 export LIBGL_ALWAYS_INDIRECT=1 #GWSL
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
 
 export PATH=$PATH:/usr/local/julia-1.10.0/bin
-
+export PATH=/home/abraxas/.nimble/bin:$PATH
 export SPARK_HOME=/opt/spark
 export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
 
@@ -195,13 +198,6 @@ unset __conda_setup
 
 
 
-# BEGIN opam configuration
-# This is useful if you're using opam as it adds:
-#   - the correct directories to the PATH
-#   - auto-completion for the opam binary
-# This section can be safely removed at any time if needed.
-[[ ! -r '/home/abraxas/.opam/opam-init/init.zsh' ]] || source '/home/abraxas/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-# END opam configuration
 
 # bun completions
 [ -s "/home/abraxas/.bun/_bun" ] && source "/home/abraxas/.bun/_bun"
@@ -209,3 +205,42 @@ unset __conda_setup
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Spark
+# Pyspark startet als Jupyter Lab mit $ sparknotebook
+function sparknotebook() {
+    export SPARK_HOME=/opt/spark
+    export PYSPARK_PYTHON=python3
+    export PYSPARK_DRIVER_PYTHON=jupyter
+    export PYSPARK_DRIVER_PYTHON_OPTS="lab"
+    $SPARK_HOME/bin/pyspark
+}
+
+
+export PATH="/home/linuxbrew/.linuxbrew/opt/postgresql@12/bin:$PATH"
+
+# C++ Boost
+export BOOST_ROOT=/usr/local 
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH 
+export CPLUS_INCLUDE_PATH=/usr/local/include:$CPLUS_INCLUDE_PATH 
+
+# C++ VCPKG
+export VCPKG_ROOT=//home/abraxas/vcpkg
+export PATH=$VCPKG_ROOT:$PATH
+export PATH="$HOME/development/flutter/bin:$PATH"
+
+# Dart Pub
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+# Wetter
+function set_poshcontext() {
+    local cache="$HOME/.cache/posh_weather"
+
+    if [[ ! -f "$cache" ]] || [[ $(find "$cache" -mmin +60 2>/dev/null) ]]; then
+        mkdir -p "$HOME/.cache"
+        curl -sf --max-time 3 'wttr.in/Essen?format=%c+%t' > "$cache"
+    fi
+
+    export POSH_WEATHER=$(cat "$cache")
+}
+
