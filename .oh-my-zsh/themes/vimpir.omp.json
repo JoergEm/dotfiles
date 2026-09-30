@@ -145,6 +145,11 @@
                     "template": " \ueba2{{ .FormattedMs }}\u2800",
                     "foreground": "p:white",
                     "background": "#83769c",
+                    "background_templates": [
+                        "{{ if eq .Env.POSH_DAYTIME \"tag\" }}#b39ddb{{ end }}",
+                        "{{ if eq .Env.POSH_DAYTIME \"daemmerung\" }}#7e57c2{{ end }}",
+                        "{{ if eq .Env.POSH_DAYTIME \"nacht\" }}#4a2f7a{{ end }}"
+                    ],
                     "type": "executiontime",
                     "style": "diamond"
                 }
@@ -172,7 +177,7 @@
                 {
                     "properties": {
                         "cache_duration": "none",
-						"display_mode": "files"
+                        "display_mode": "files"
                     },
                     "leading_diamond": "\ue0b6",
                     "trailing_diamond": "\ue0b4",
@@ -385,7 +390,7 @@
                     "leading_diamond": "\ue0b2",
                     "style": "diamond",
                     "template": "{{ if .Env.POSH_WEATHER }}\uf2c9 {{ .Env.POSH_WEATHER }}{{ end }}",
-					"min_width": 90,
+                    "min_width": 90,
                     "type": "text"
                 },
                 {
@@ -400,7 +405,7 @@
                     "background": "p:blue",
                     "type": "time",
                     "style": "diamond",
-					"min_width": 90,
+                    "min_width": 90,
                     "invert_powerline": true
                 }
                         ]
@@ -408,7 +413,7 @@
         {
             "type": "prompt",
             "alignment": "left",
-			"overflow": "hide",
+            "overflow": "hide",
             "segments": [
                 {
                     "properties": {
