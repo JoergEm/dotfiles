@@ -147,7 +147,7 @@
                     "background": "#83769c",
                     "background_templates": [
                         "{{ if eq .Env.POSH_DAYTIME \"tag\" }}#b39ddb{{ end }}",
-                        "{{ if eq .Env.POSH_DAYTIME \"daemmerung\" }}#7e57c2{{ end }}",
+                        "{{ if eq .Env.POSH_DAYTIME \"daemmerung\" }}linear-gradient(#b39ddb, #4a2f7a){{ end }}",
                         "{{ if eq .Env.POSH_DAYTIME \"nacht\" }}#4a2f7a{{ end }}"
                     ],
                     "type": "executiontime",
